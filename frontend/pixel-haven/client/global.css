@@ -1,0 +1,106 @@
+/** @import must precede all other statements */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Tailwind CSS theme - Dark Futuristic
+   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
+   * A different format will require also updating the theme in tailwind.config.ts.
+  */
+  :root {
+    --background: 220 20% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 20% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 20% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 270 100% 55%;
+    --primary-foreground: 220 20% 8%;
+
+    --secondary: 180 100% 50%;
+    --secondary-foreground: 220 20% 8%;
+
+    --muted: 220 15% 25%;
+    --muted-foreground: 210 20% 70%;
+
+    --accent: 180 100% 50%;
+    --accent-foreground: 220 20% 8%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 18%;
+    --ring: 180 100% 50%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 220 20% 10%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 270 100% 55%;
+    --sidebar-primary-foreground: 220 20% 8%;
+    --sidebar-accent: 180 100% 50%;
+    --sidebar-accent-foreground: 220 20% 8%;
+    --sidebar-border: 220 15% 20%;
+    --sidebar-ring: 180 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th) {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  pre,
+  code {
+    overflow-x: auto;
+    white-space: pre;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+
+  .neon-glow {
+    @apply shadow-lg shadow-cyan-500/20;
+  }
+
+  .neon-glow-purple {
+    @apply shadow-lg shadow-purple-500/20;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #00d4ff 0%, #0099ff 50%, #9933ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-border {
+    position: relative;
+    background: linear-gradient(135deg, #00d4ff 0%, #0099ff 50%, #9933ff 100%);
+    padding: 1px;
+  }
+
+  .gradient-border > * {
+    @apply bg-background;
+  }
+}
